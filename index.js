@@ -7,7 +7,10 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
-var third_osc_enabled = flagsmith.hasFeature('third_oscillator');
+const flags = flagsmith.getEnvironmentFlags();
+
+// Check for a feature
+var third_osc_enabled = flags.isFeatureEnabled("third_oscillator");
 
 const PORT = process.env.PORT || 5001
 
@@ -17,7 +20,7 @@ express()
     .set('view engine', 'ejs')
 
     .get('/', (req, res) => res.render('pages/index', { 
-      third_osc_enabled: 'Coming Soon!', 
+      third_osc_enabled: third_osc_enabled, 
       mainText: 'Eventually Podcast'
     }))
     .get('/cool', (req, res) => res.send(cool()))
