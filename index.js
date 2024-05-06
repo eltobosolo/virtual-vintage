@@ -29,12 +29,10 @@ express()
 	    console.log(`Error connecting to flagsmith - ${e.getMessage} `, e);
 	}
 
-	console.log(`show footer icons: ${third_osc_enabled}`);
+	console.log(`third_osc_enabled: ${third_osc_enabled}`);
 	res.render(
 	    'pages/index', 
 	    { 
-		title: 'Coming Soon!', 
-		mainText: 'Eventually Podcast', 
 		third_osc_enabled, 
 	    }
 	);
