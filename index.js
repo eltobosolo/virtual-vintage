@@ -7,10 +7,9 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
-const flags = flagsmith.getEnvironmentFlags();
+const flags = await flagsmith.getEnvironmentFlags();
 
-// Check for a feature
-var third_osc_enabled = flags.isFeatureEnabled("third_oscillator");
+var third_osc_enabled = flags.isFeatureEnabled('third_oscillator');
 
 const PORT = process.env.PORT || 5001
 
