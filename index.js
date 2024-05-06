@@ -18,7 +18,7 @@ express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
 
-    .get('/', (req, res) => res.render('pages/index', { 
+    .get('/', async (req, res) => res.render('pages/index', { 
       third_osc_enabled: third_osc_enabled, 
       mainText: 'Eventually Podcast'
     }))
