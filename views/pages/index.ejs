@@ -4,23 +4,19 @@
 <head>
   <script>
 
-    	    document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
+    import Flagsmith from "flagsmith-nodejs"; // Add this line if you're using flagsmith via npm
 
-    import flagsmith from "flagsmith"; // Add this line if you're using flagsmith via npm
-
-    flagsmith.init({
-	environmentID: "jhZAAroZixcZKDPDxh46Ek",
-	onChange: (oldFlags, params) => { // Occurs whenever flags are changed
-            // Determines if the update came from the server or local cached storage
-            const { isFromServer } = params;
-
-
-	    // Check for a feature
-            if (flagsmith.hasFeature("third_oscillator")) {
-
-            }
-	}
+    const flagsmith = new Flagsmith({
+	environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
     });
+
+    const flags = await flagsmith.getEnvironmentFlags();
+
+    // Check for a feature
+    var isEnabled = flags.isFeatureEnabled("third_oscillator")
+
+    if(isEnabled)
+	document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
 
   </script>
 
