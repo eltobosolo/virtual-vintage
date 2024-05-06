@@ -13,8 +13,9 @@ express()
     .use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
+
     .get('/', (req, res) => res.render('pages/index', { 
-      title: 'Coming Soon!', 
+      third_osc_enabled: 'Coming Soon!', 
       mainText: 'Eventually Podcast'
     }))
     .get('/cool', (req, res) => res.send(cool()))
