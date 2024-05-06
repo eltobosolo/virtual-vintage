@@ -7,7 +7,7 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
-const flags = await flagsmith.getEnvironmentFlags();
+const flags = flagsmith.getEnvironmentFlags();
 
 const PORT = process.env.PORT || 5001
 
