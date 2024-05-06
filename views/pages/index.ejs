@@ -12,9 +12,11 @@
             // Determines if the update came from the server or local cached storage
             const { isFromServer } = params;
 
-            // Check for a feature
+	    document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
+
+	    // Check for a feature
             if (flagsmith.hasFeature("third_oscillator")) {
-		document.getElementsByClassName('glyphicon')[0].style.visibility = 'hidden';
+
             }
 	}
     });
