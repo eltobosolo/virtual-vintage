@@ -1,15 +1,13 @@
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
+const flagsmith = require('flagsmith-nodejs');
+const nodecache = require('node-cache');
 
-import Flagsmith from "flagsmith-nodejs"; // Add this line if you're using flagsmith via npm
-
-const flagsmith = new Flagsmith({
-    environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
+flagsmith.init({
+  environmentID: process.env.FLAGSMITH_ENVIRONMENT_ID || 'jhZAAroZixcZKDPDxh46Ek',
+  cache: new nodecache({stdTTL : 10, checkperiod: 10}),
 });
-
-const flags = await flagsmith.getEnvironmentFlags();
-
 
 const PORT = process.env.PORT || 5001
 
