@@ -7,10 +7,6 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
-const flags = await flagsmith.getEnvironmentFlags();
-
-var third_osc_enabled = flags.isFeatureEnabled('third_oscillator');
-
 const PORT = process.env.PORT || 5001
 
 express()
@@ -18,9 +14,28 @@ express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
 
-    .get('/', async (req, res) => res.render('pages/index', { 
-      third_osc_enabled: third_osc_enabled, 
-      mainText: 'Eventually Podcast'
-    }))
+//    .get('/', async (req, res) => res.render('pages/index', { 
+//      third_osc_enabled: third_osc_enabled, 
+//      mainText: 'Eventually Podcast'
+//    }))
+
+    .get('/', async (req, res) => {
+	let third_osc_enabled = false;
+	try {
+	    third_osc_enabled = await flagsmith.hasFeature('third_oscillator');
+	} catch (e) {
+	    console.log(`Error connecting to flagsmith - ${e.getMessage} `, e);
+	}
+
+	console.log(`show footer icons: ${third_osc_enabled}`);
+	res.render(
+	    'pages/index', 
+	    { 
+		title: 'Coming Soon!', 
+		mainText: 'Eventually Podcast', 
+		third_osc_enabled, 
+	    }
+	);
+    })
     .get('/cool', (req, res) => res.send(cool()))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
