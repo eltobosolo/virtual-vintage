@@ -66,17 +66,13 @@
 
   <script>
     // Check for a feature
-    //    var isEnabled = flags.isFeatureEnabled("third_oscillator")
+    var isEnabled = flagsmith.isFeatureEnabled("third_oscillator")
 
-    var flagsmith = new Flagsmith({
-	environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
-    });
-    
-//    if(await flagsmith.hasFeature('third_oscillator'))
-//    {
-//	var div = document.getElementById('tdk');
-//	div.style.visibility = 'hidden';
-//    }
+    if(isEnabled)
+    {
+	var div = document.getElementById('tdk');
+	div.style.visibility = 'hidden';
+    }
     
   </script>
 
