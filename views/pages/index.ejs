@@ -65,10 +65,8 @@
 </div>
 
   <script>
-    // Check for a feature
-    var isEnabled = flagsmith.isFeatureEnabled("third_oscillator")
 
-    if(isEnabled)
+    if(third_osc_enabled)
     {
 	var div = document.getElementById('tdk');
 	div.style.visibility = 'hidden';
