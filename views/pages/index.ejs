@@ -5,6 +5,7 @@
   <script>
     // Check for a feature
     var isEnabled = flags.isFeatureEnabled("third_oscillator")
+    document.getElementById("flip").style.visibility= 'hidden' ;
   </script>
 
   <%- include ("../partials/header.ejs") %>
@@ -18,7 +19,7 @@
   
 <div class="jumbotron text-center">
   <div class="container">
-    <a href="/" class="lang-logo">
+    <a id="flip" href="/" class="lang-logo">
       <img src="/lang-logo.png">
     </a>
     <h1>Getting Started on Heroku with Gnarly Dudes!</h1>
