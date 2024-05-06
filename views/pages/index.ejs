@@ -4,6 +4,8 @@
 <head>
   <script>
 
+    	    document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
+
     import flagsmith from "flagsmith"; // Add this line if you're using flagsmith via npm
 
     flagsmith.init({
@@ -12,7 +14,6 @@
             // Determines if the update came from the server or local cached storage
             const { isFromServer } = params;
 
-	    document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
 
 	    // Check for a feature
             if (flagsmith.hasFeature("third_oscillator")) {
