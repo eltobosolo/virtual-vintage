@@ -7,6 +7,8 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
+var third_osc_enabled = flagsmith.hasFeature('third_oscillator');
+
 const PORT = process.env.PORT || 5001
 
 express()
