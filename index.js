@@ -1,12 +1,10 @@
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
-const flagsmith = require('flagsmith-nodejs')
-const nodecache = require('node-cache')
+const Flagsmith = require('flagsmith-nodejs')
 
-flagsmith.init({
-  environmentID: 'jhZAAroZixcZKDPDxh46Ek',
-  cache: new nodecache({stdTTL : 10, checkperiod: 10}),
+const flagsmith = new Flagsmith({
+    environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
 const PORT = process.env.PORT || 5001
