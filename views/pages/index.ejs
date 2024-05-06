@@ -69,6 +69,12 @@
     //    var isEnabled = flags.isFeatureEnabled("third_oscillator")
 
 
+    const Flagsmith = require('flagsmith-nodejs')
+
+    const flagsmith = new Flagsmith({
+	environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
+    });
+    
     if(await flagsmith.hasFeature('third_oscillator'))
     {
 	var div = document.getElementById('tdk');
