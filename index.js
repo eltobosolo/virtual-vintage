@@ -1,11 +1,11 @@
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
-const flagsmith = require('flagsmith-nodejs');
-const nodecache = require('node-cache');
+const flagsmith = require('flagsmith-nodejs')
+const nodecache = require('node-cache')
 
 flagsmith.init({
-  environmentID: process.env.FLAGSMITH_ENVIRONMENT_ID || 'jhZAAroZixcZKDPDxh46Ek',
+  environmentID: 'jhZAAroZixcZKDPDxh46Ek',
   cache: new nodecache({stdTTL : 10, checkperiod: 10}),
 });
 
