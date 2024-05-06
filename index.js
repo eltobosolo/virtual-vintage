@@ -7,7 +7,7 @@ const flagsmith = new Flagsmith({
     environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
 });
 
-var third_osc_enabled = await flagsmith.hasFeature('third_oscillator');
+const flags = await flagsmith.getEnvironmentFlags();
 
 const PORT = process.env.PORT || 5001
 
@@ -15,6 +15,6 @@ express()
     .use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
-    .get('/', (req, res) => res.render('pages/index'), third_osc_enabled)
+    .get('/', (req, res) => res.render('pages/index'), { flags: flags } )
     .get('/cool', (req, res) => res.send(cool()))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
