@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+
+<script>
+
+import flagsmith from "flagsmith"; // Add this line if you're using flagsmith via npm
+
+flagsmith.init({
+    environmentID: "jhZAAroZixcZKDPDxh46Ek",
+    onChange: (oldFlags, params) => { // Occurs whenever flags are changed
+        // Determines if the update came from the server or local cached storage
+        const { isFromServer } = params;
+
+        // Check for a feature
+        if (flagsmith.hasFeature("my_cool_feature")) {
+            myCoolFeature();
+        }
+
+        // Or, use the value of a feature
+        const banner_size = flagsmith.getValue("banner_size");
+
+        // Check whether value has changed
+        const banner_sizeOld = oldFlags["banner_size"]
+        && oldFlags["banner_size"].value;
+
+        if (banner_size !== banner_sizeOld) {
+            // Value has changed, do something here
+        }
+    }
+});
+
+</script>
+  
 <html>
 <head>
   <%- include ("../partials/header.ejs") %>
