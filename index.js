@@ -22,7 +22,9 @@ express()
     .get('/', async (req, res) => {
 	let third_osc_enabled = false;
 	try {
-	    third_osc_enabled = await flagsmith.hasFeature('third_oscillator');
+	    const flags = await flagsmith.getEnvironmentFlags();
+	    third_osc_enabled = flags.isFeatureEnabled('third_oscillator');
+	    
 	} catch (e) {
 	    console.log(`Error connecting to flagsmith - ${e.getMessage} `, e);
 	}
