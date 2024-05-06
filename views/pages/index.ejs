@@ -3,19 +3,8 @@
 <html>
 <head>
   <script>
-
-    const flagsmith = new Flagsmith({
-	environmentKey: 'jhZAAroZixcZKDPDxh46Ek'
-    });
-
-    const flags = await flagsmith.getEnvironmentFlags();
-
     // Check for a feature
     var isEnabled = flags.isFeatureEnabled("third_oscillator")
-
-    if(isEnabled)
-	document.getElementsByClassName('alert-info')[0].style.visibility = 'hidden';
-
   </script>
 
   <%- include ("../partials/header.ejs") %>
