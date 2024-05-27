@@ -64,17 +64,12 @@
   </div>
 </div>
 
-  <%= third_osc_enabled %>
 
+  <% if (third_osc_enabled) { %>
   <script>
-    console.log(third_osc_enabled);
-    if(third_osc_enabled == true)
-    {
 	document.getElementById('tdk').style.visibility = 'hidden';
-    }
-    
   </script>
-
+  <% } %>
 
  
 </body>
