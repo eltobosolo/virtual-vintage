@@ -23,7 +23,7 @@ express()
 	let third_osc_enabled = false;
 	try {
 	    const flags = await flagsmith.getEnvironmentFlags();
-	    third_osc_enabled = flags.isFeatureEnabled('third_oscillator');
+	    const third_osc_enabled = flags.isFeatureEnabled('third_oscillator');
 	    
 	} catch (e) {
 	    console.log(`Error connecting to flagsmith - ${e.getMessage} `, e);
