@@ -14,7 +14,7 @@
     "cool-ascii-faces": "^1.3.4",
     "ejs": "^3.1.9",
     "express": "^4.15.2",
-    "flagsmith": "^4.0.1",
+    "flagsmith": "^7.0.0",
     "flagsmith-nodejs": "^3.3.0",
     "node-cache": "^5.1.2"
   },
